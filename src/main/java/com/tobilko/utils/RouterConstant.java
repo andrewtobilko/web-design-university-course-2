@@ -11,9 +11,9 @@ public class RouterConstant {
     public interface Configuration {
         String
                 BASE_PATH = "/api",
-                SORT_PARAM_NAME = "",
-                LIMIT_PARAM_NAME = "",
-                PAGE_PARAM_NAME = "";
+                SORT_PARAM_NAME = "s",
+                LIMIT_PARAM_NAME = "l",
+                PAGE_PARAM_NAME = "p";
     }
 
 }
