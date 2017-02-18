@@ -1,7 +1,6 @@
 {
   "project": {
-    "version": "1.0.0",
-    "name": "web-design-university-course-2-front"
+    "version": "front"
   },
   "apps": [
     {
@@ -13,26 +12,13 @@
       ],
       "index": "index.html",
       "main": "main.ts",
-      "polyfills": "polyfills.ts",
-      "test": "test.ts",
       "tsconfig": "tsconfig.json",
       "prefix": "app",
       "styles": [
-        "styles.css"
-      ],
-      "scripts": [],
-      "environments": {
-        "source": "environments/environment.ts",
-        "dev": "environments/environment.ts",
-        "prod": "environments/environment.prod.ts"
-      }
+        "style.css"
+      ]
     }
   ],
-  "e2e": {
-    "protractor": {
-      "config": "./protractor.conf.js"
-    }
-  },
   "lint": [
     {
       "files": "src/**/*.ts",
@@ -43,11 +29,6 @@
       "project": "e2e/tsconfig.json"
     }
   ],
-  "test": {
-    "karma": {
-      "config": "./karma.conf.js"
-    }
-  },
   "defaults": {
     "styleExt": "css",
     "prefixInterfaces": false,
