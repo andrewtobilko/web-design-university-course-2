@@ -1,5 +1,8 @@
 .gralde
 .idea
 
-build
-gradle
+build/
+gradle/
+node_modules/
+
+*.iml
