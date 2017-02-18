@@ -6,9 +6,9 @@ import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.bind.annotation.*;
+
+import javax.validation.Valid;
 
 import static com.tobilko.utils.RouterConstant.PublishingConstant.*;
 import static org.springframework.http.HttpStatus.*;
@@ -20,9 +20,9 @@ public class PublishingController {
 
     private final @NonNull PublishingService service;
 
-    @GetMapping(path = CREATE)
+    @PostMapping(path = CREATE)
     @ResponseStatus(code = OK)
-    public Page publishPageFromConfiguration(PageConfiguration configuration) {
+    public Page publishPageFromConfiguration(@Valid PageConfiguration configuration) {
         return service.publishPageFromConfiguration(configuration);
     }
 
