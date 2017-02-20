@@ -1,4 +1,4 @@
-package com.tobilko.publishing.entity;
+package com.tobilko.page.entity;
 
 import lombok.Data;
 

@@ -8,6 +8,12 @@ public class RouterConstant {
                 CREATE = "create";
     }
 
+    public interface PageConstant {
+        String
+                IDENTIFIER = "identifier",
+                GET_BY_IDENTIFIER = "pages/{" + IDENTIFIER + "}";
+    }
+
     public interface Configuration {
         String
                 BASE_PATH = "/api",

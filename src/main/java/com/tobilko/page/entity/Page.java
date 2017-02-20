@@ -1,4 +1,4 @@
-package com.tobilko.publishing.entity;
+package com.tobilko.page.entity;
 
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
@@ -12,8 +12,6 @@ public class Page {
     @Id
     @GeneratedValue
     private Long id;
-
-    private 
 
     @Embedded
     private PageConfiguration configuration;
