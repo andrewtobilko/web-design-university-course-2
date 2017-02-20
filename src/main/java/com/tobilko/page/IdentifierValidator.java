@@ -3,6 +3,11 @@ package com.tobilko.page;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
 
+import static com.tobilko.utils.RouterConstant.PageConstant.IDENTIFIER;
+import static com.tobilko.utils.ValidationErrorMessageConstant.IdentifierError.IDENTIFIER_NOT_NULL;
+import static java.util.Objects.requireNonNull;
+import static org.springframework.validation.ValidationUtils.rejectIfEmptyOrWhitespace;
+
 /**
  *
  * Created by Andrew Tobilko on 20.02.17.
@@ -17,8 +22,8 @@ public class IdentifierValidator implements Validator {
 
     @Override
     public void validate(Object target, Errors errors) {
-        String instance = target.toString();
-        // todo : validate
+        String instance = requireNonNull(target, IDENTIFIER_NOT_NULL).toString();
+        rejectIfEmptyOrWhitespace(errors, instance, IDENTIFIER, IDENTIFIER_NOT_NULL);
     }
 
 }
