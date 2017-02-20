@@ -4,6 +4,7 @@ import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import java.time.LocalDateTime;
 
 @Entity
 public class Page {
@@ -12,7 +13,12 @@ public class Page {
     @GeneratedValue
     private Long id;
 
+    private 
+
     @Embedded
     private PageConfiguration configuration;
+
+
+    public LocalDateTime lastEditingTime;
 
 }
