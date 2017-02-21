@@ -1,1 +1,10 @@
-<button md-button class="md-button" (click)="addPage($event)">Add page</button>
+<header>
+    <nav>
+        <a routerLink="/pages" routerLinkActive="active">Page Settings</a>
+        <a routerLink="/settings" routerLinkActive="active">Other Settings</a>
+    </nav>
+</header>
+<router-outlet></router-outlet>
+<footer>
+    Andrew Tobilko, TV-31, All right reserved.
+</footer>
