@@ -5,7 +5,10 @@ import {PageService} from "./page.service";
 @Component({
     selector: 'page',
     templateUrl: './page.component.html',
-    styleUrls: ['./page.component.css']
+    styleUrls: ['./page.component.css'],
+    providers: [
+        PageService
+    ]
 })
 export class PageComponent implements OnInit {
 
@@ -18,7 +21,7 @@ export class PageComponent implements OnInit {
     ) {}
 
     ngOnInit(): void {
-        this.title = this.activatedRoute.data.subscribe((data: { title: 'Pages'}) => {
+        this.activatedRoute.data.subscribe((data: {title: 'Pages'}) => {
             this.title = data.title;
         });
     }

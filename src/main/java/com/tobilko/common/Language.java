@@ -8,7 +8,8 @@ package com.tobilko.common;
  */
 public enum Language {
 
-    EN("en"), UA("ua");
+    EN("en"),
+    UA("ua");
 
     private String value;
 

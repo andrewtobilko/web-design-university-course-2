@@ -1,5 +1,6 @@
 <router-outlet></router-outlet>
-<h1>{{ title }}</h1>
+<h1 [innerHtml]="title"></h1>
+{{ title.title }}
 <hr>
 <button md-button class="md-button" (click)="addPage($event)">Add page</button>
 <hr>

@@ -7,6 +7,11 @@ import org.springframework.stereotype.Component;
 import static com.tobilko.utils.RouterConstant.Configuration.*;
 import static org.springframework.http.MediaType.*;
 
+/**
+ *
+ * Created by Andrew Tobilko on 21.02.17.
+ *
+ */
 @Component
 public class GlobalWebConfiguration extends RepositoryRestConfigurerAdapter {
 
