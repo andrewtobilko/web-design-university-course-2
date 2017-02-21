@@ -1,7 +1,6 @@
 package com.tobilko.page.entity;
 
 import javax.persistence.*;
-import java.time.LocalDateTime;
 
 /**
  *
@@ -21,10 +20,7 @@ public class Page {
     @Column(unique = true)
     private String identifier;
 
-    @Embedded
-    private PageConfiguration configuration;
-
-
-    public LocalDateTime lastEditingTime;
+    private @Embedded PageConfiguration configuration;
+    private @Embedded PageHistory history;
 
 }
