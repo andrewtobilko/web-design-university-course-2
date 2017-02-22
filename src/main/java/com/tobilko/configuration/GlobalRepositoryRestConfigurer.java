@@ -18,11 +18,20 @@ public class GlobalRepositoryRestConfigurer extends RepositoryRestConfigurerAdap
     @Override
     public void configureRepositoryRestConfiguration(RepositoryRestConfiguration config) {
         config
+
+                /* path configuration */
                 .setBasePath(BASE_PATH)
                 .setDefaultMediaType(APPLICATION_JSON)
                 .setSortParamName(SORT_PARAM_NAME)
                 .setPageParamName(PAGE_PARAM_NAME)
-                .setLimitParamName(LIMIT_PARAM_NAME);
+                .setLimitParamName(LIMIT_PARAM_NAME)
+
+                /* CORS configuration */
+                .getCorsRegistry()
+                    .addMapping(CORS_BASE_PATTERN)
+                    .allowedOrigins(ALLOWED_ORIGINS)
+                    .allowedHeaders(ALLOWED_HEADERS)
+                    .allowedMethods(ALLOWED_METHODS);
     }
 
 }

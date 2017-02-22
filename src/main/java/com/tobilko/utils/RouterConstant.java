@@ -25,7 +25,7 @@ public interface RouterConstant {
 
         String[]
                 ALLOWED_ORIGINS = {"http://localhost:4200"},
-                ALLOWED_METHODS = {POST.name(), PUT.name(), DELETE.name(), OPTIONS.name()},
+                ALLOWED_METHODS = {POST.name(), PUT.name(), DELETE.name()},
                 ALLOWED_HEADERS = {"Content-Type", "Accept", "X-Requested-With", "remember-me"};
     }
 

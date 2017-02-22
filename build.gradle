@@ -21,9 +21,9 @@ repositories {
 }
 
 dependencies {
-	compile	'org.springframework.boot:spring-boot-starter-data-jpa',
-			'org.springframework.boot:spring-boot-starter-data-rest',
-			'org.springframework.boot:spring-boot-starter-web',
+	compile	'org.springframework.boot:spring-boot-starter-data-jpa:1.5.1.RELEASE',
+			'org.springframework.boot:spring-boot-starter-data-rest:1.5.1.RELEASE',
+			'org.springframework.boot:spring-boot-starter-web:1.5.1.RELEASE',
 			'org.apache.commons:commons-lang3:3.5'
 
 	runtime 'com.h2database:h2'
