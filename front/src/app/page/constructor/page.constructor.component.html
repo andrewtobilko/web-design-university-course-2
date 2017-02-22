@@ -1,6 +1,8 @@
 <div class="page-constructor-wrapper">
 
-    <input type="text" placeholder="Page title">
-    <input type="text" placeholder="Desired page URL">
+    <input type="text" [(ngModel)]="page.title" placeholder="Page title">
+    <input type="text" [(ngModel)]="page.uri" placeholder="Desired page URI">
+
+    <button md-button class="create-button" (click)="construct()">Create a page</button>
 
 </div>

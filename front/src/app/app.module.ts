@@ -7,6 +7,9 @@ import {Routes, RouterModule} from "@angular/router";
 import {PageComponent} from "./page/page.component";
 import {PageNotFoundComponent} from "./error/error.component";
 import {PageConstructor} from "./page/constructor/page.constructor.component";
+import {FormsModule} from "@angular/forms";
+import {JsonpModule, HttpModule} from "@angular/http";
+import {ApplicationConstants, CONSTANTS} from "../app.config";
 
 const routes: Routes = [
   {
@@ -37,7 +40,10 @@ const routes: Routes = [
   imports: [
     RouterModule.forRoot(routes),
     BrowserModule,
-    MaterialModule
+    MaterialModule,
+    FormsModule,
+    HttpModule,
+    JsonpModule
   ],
   declarations: [
     AppComponent,
@@ -47,6 +53,9 @@ const routes: Routes = [
   ],
   bootstrap:[
     AppComponent
+  ],
+  providers: [
+    { provide: CONSTANTS, useValue: ApplicationConstants }
   ]
 })
 export class AppModule { }

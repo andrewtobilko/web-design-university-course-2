@@ -28,13 +28,7 @@ export class PageComponent implements OnInit {
     }
 
     getPages(): void {
-        //this.pages = this.service.fetchAllPages();
+        // todo
     }
-
-    goToPageConstructor() {
-        this.router.navigate(['create']);
-    }
-
-
 
 }

@@ -1,4 +1,7 @@
 import {Component} from "@angular/core";
+import {Page} from "../entity/page.model";
+import {PageService} from "../page.service";
+import {Router} from "@angular/router";
 
 @Component({
     selector: 'add-page-form',
@@ -7,8 +10,20 @@ import {Component} from "@angular/core";
 })
 export class PageConstructor {
 
+    public page = {
+        title: '',
+        uri: ''
+    };
+
+    constructor(private service: PageService,
+                private router: Router) {}
+
     construct() : void {
-        // todo : construct a new instance, return it to the previous (parent) state
+        this.service.createPage(
+            new Page(this.page.title, this.page.uri)
+        );
+        // todo : return to the previous (parent) state if everything is ok
+        this.router.navigate(['']);
     }
 
 }

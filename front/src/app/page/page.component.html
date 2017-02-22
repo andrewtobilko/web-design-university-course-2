@@ -1,7 +1,8 @@
-<router-outlet></router-outlet>
 <h1 [innerHtml]="title"></h1>
-{{ title.title }}
 <hr>
-<button md-button class="md-button" [routerLink]="['create']">Add page</button>
+<button md-button [routerLink]="['create']">Add page</button>
 <hr>
-<div class="pages-wrapper"></div>
+<div class="pages-wrapper">
+    <!-- a list of pages -->
+</div>
+<router-outlet></router-outlet>
