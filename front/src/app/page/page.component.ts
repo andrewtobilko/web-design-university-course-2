@@ -24,6 +24,17 @@ export class PageComponent implements OnInit {
         this.activatedRoute.data.subscribe((data: {title: 'Pages'}) => {
             this.title = data.title;
         });
+        this.getPages();
     }
+
+    getPages(): void {
+        //this.pages = this.service.fetchAllPages();
+    }
+
+    goToPageConstructor() {
+        this.router.navigate(['create']);
+    }
+
+
 
 }

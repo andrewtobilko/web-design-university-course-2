@@ -6,6 +6,7 @@ import "hammerjs";
 import {Routes, RouterModule} from "@angular/router";
 import {PageComponent} from "./page/page.component";
 import {PageNotFoundComponent} from "./error/error.component";
+import {PageConstructor} from "./page/constructor/page.constructor.component";
 
 const routes: Routes = [
   {
@@ -13,9 +14,15 @@ const routes: Routes = [
     component: PageComponent,
     data: {
       title: 'Pages'
-    }
+    },
+    children: [
+      {
+        path: 'create',
+        component: PageConstructor
+      }
+    ]
   },
-  {
+  { // todo : temporal
     path: '',
     redirectTo: '/pages',
     pathMatch: 'full'
@@ -35,7 +42,8 @@ const routes: Routes = [
   declarations: [
     AppComponent,
     PageComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    PageConstructor
   ],
   bootstrap:[
     AppComponent
