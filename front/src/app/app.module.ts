@@ -9,36 +9,12 @@ import {PageNotFoundComponent} from "./error/error.component";
 import {PageConstructor} from "./page/constructor/page.constructor.component";
 import {FormsModule} from "@angular/forms";
 import {JsonpModule, HttpModule} from "@angular/http";
-import {ApplicationConstants, CONSTANTS} from "../app.config";
-
-const routes: Routes = [
-  {
-    path: 'pages',
-    component: PageComponent,
-    data: {
-      title: 'Pages'
-    },
-    children: [
-      {
-        path: 'create',
-        component: PageConstructor
-      }
-    ]
-  },
-  { // todo : temporal
-    path: '',
-    redirectTo: '/pages',
-    pathMatch: 'full'
-  },
-  {
-    path: '**',
-    component: PageNotFoundComponent
-  }
-];
+import {ApplicationConstants, CONSTANTS} from "./app.constants";
+import {APPLICATION_ROUTERS} from "./app.routers";
 
 @NgModule({
   imports: [
-    RouterModule.forRoot(routes),
+    RouterModule.forRoot(APPLICATION_ROUTERS),
     BrowserModule,
     MaterialModule,
     FormsModule,

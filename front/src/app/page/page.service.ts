@@ -1,7 +1,7 @@
 import {Injectable, Inject} from "@angular/core";
 import {Page} from "./entity/page.model";
 import {Response, Http} from "@angular/http";
-import {Constants, CONSTANTS} from "../../app.config";
+import {Constants, CONSTANTS} from "../app.constants";
 import {Observable} from "rxjs";
 
 @Injectable()
