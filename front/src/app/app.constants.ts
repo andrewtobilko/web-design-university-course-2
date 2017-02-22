@@ -1,12 +1,7 @@
 import {OpaqueToken} from "@angular/core";
-import {Headers} from "@angular/http";
+import {Constants} from "./app.constants.interface";
 
-export let CONSTANTS = new OpaqueToken("app.constans");
-
-export interface Constants {
-    PAGE;
-    DEFAULT_HEADERS: Headers;
-}
+export let CONSTANTS = new OpaqueToken("app.constants");
 
 const GLOBAL = {
     SERVER_URL: 'http://localhost:8080/api'
@@ -20,8 +15,8 @@ export const ApplicationConstants : Constants =  {
         DELETE: GLOBAL.SERVER_URL + '/pages'
     },
 
-    DEFAULT_HEADERS: new Headers({
+    DEFAULT_HEADERS: {
         'Content-Type': 'application/json'
-    })
+    }
 
 };

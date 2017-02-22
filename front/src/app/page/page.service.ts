@@ -1,8 +1,9 @@
 import {Injectable, Inject} from "@angular/core";
 import {Page} from "./entity/page.model";
-import {Response, Http, RequestOptions} from "@angular/http";
-import {Constants, CONSTANTS} from "../app.constants";
+import {Response, Http, RequestOptions, Headers} from "@angular/http";
+import {CONSTANTS} from "../app.constants";
 import {Observable} from "rxjs";
+import {Constants} from "../app.constants.interface";
 
 @Injectable()
 export class PageService {
@@ -14,7 +15,7 @@ export class PageService {
             return Observable.empty();
         }
 
-        let options = new RequestOptions({ headers: this.constants.DEFAULT_HEADERS });
+        let options = new RequestOptions({ headers: new Headers(this.constants.DEFAULT_HEADERS) });
         return this.http
                    .post(this.constants.PAGE.CREATE, page, options)
                    .map(this.processSuccessfulResponse)
