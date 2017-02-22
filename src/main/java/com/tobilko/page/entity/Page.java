@@ -20,7 +20,6 @@ public class Page {
     @Column(unique = true)
     private String identifier;
 
-    private @Embedded PageConfiguration configuration;
-    private @Embedded PageHistory history;
+    private String title;
 
 }

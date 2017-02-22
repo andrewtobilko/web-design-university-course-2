@@ -1,28 +1,25 @@
 package com.tobilko.configuration;
 
-import org.springframework.data.rest.core.config.RepositoryRestConfiguration;
-import org.springframework.data.rest.webmvc.config.RepositoryRestConfigurerAdapter;
-import org.springframework.stereotype.Component;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
 import static com.tobilko.utils.RouterConstant.Configuration.*;
-import static org.springframework.http.MediaType.*;
 
 /**
  *
  * Created by Andrew Tobilko on 21.02.17.
  *
  */
-@Component
-public class GlobalWebConfiguration extends RepositoryRestConfigurerAdapter {
+@Configuration
+public class GlobalWebConfiguration extends WebMvcConfigurerAdapter {
 
     @Override
-    public void configureRepositoryRestConfiguration(RepositoryRestConfiguration config) {
-        config
-                .setBasePath(BASE_PATH)
-                .setDefaultMediaType(APPLICATION_JSON)
-                .setSortParamName(SORT_PARAM_NAME)
-                .setPageParamName(PAGE_PARAM_NAME)
-                .setLimitParamName(LIMIT_PARAM_NAME);
+    public void addCorsMappings(CorsRegistry registry) {
+        registry.addMapping(CORS_BASE_PATTERN)
+                .allowedOrigins(ALLOWED_ORIGINS)
+                .allowedMethods(ALLOWED_METHODS)
+                .allowedHeaders(ALLOWED_HEADERS);
     }
 
 }

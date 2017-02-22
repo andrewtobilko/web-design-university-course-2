@@ -1,7 +1,7 @@
 export class Page {
 
     constructor(private title: string,
-                private uri: string) {}
+                private identifier: string) {}
 
 
     get getTitle(): string {
@@ -13,11 +13,11 @@ export class Page {
     }
 
     get getURI(): string {
-        return this.uri;
+        return this.identifier;
     }
 
-    setURI(newURI: string): void {
-        this.uri = newURI;
+    setURI(uri: string): void {
+        this.identifier = uri;
     }
 
 }

@@ -9,7 +9,7 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
  * Created by Andrew Tobilko on 20.02.17.
  *
  */
-@RepositoryRestResource(exported = false)
+@RepositoryRestResource
 public interface PageRepository extends PagingAndSortingRepository<Page, Long> {
 
     Page findByIdentifier(String identifier);

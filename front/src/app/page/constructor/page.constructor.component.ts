@@ -18,12 +18,21 @@ export class PageConstructor {
     constructor(private service: PageService,
                 private router: Router) {}
 
-    construct() : void {
-        this.service.createPage(
-            new Page(this.page.title, this.page.uri)
-        );
-        // todo : return to the previous (parent) state if everything is ok
+    construct(): void {
+        let page = new Page(this.page.title, this.page.uri);
+
+        this.service
+            .createPage(page)
+            .subscribe(this.processSuccessfulResponse, this.handleErroneousResponse);
+    }
+
+    private processSuccessfulResponse(page : Page) {
+        alert('processSuccessfulResponse > page controller')
         this.router.navigate(['']);
+    }
+
+    private handleErroneousResponse(page : Page) {
+        alert('handleErroneousResponse > page controller')
     }
 
 }

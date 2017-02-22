@@ -1,6 +1,6 @@
 import {Injectable, Inject} from "@angular/core";
 import {Page} from "./entity/page.model";
-import {Response, Http} from "@angular/http";
+import {Response, Http, RequestOptions} from "@angular/http";
 import {Constants, CONSTANTS} from "../app.constants";
 import {Observable} from "rxjs";
 
@@ -10,12 +10,15 @@ export class PageService {
     constructor(private http: Http, @Inject(CONSTANTS) private constants: Constants) {}
 
     createPage(page: Page): Observable<Page> {
-        return this.isValidPage(page) ?
-            this.http
-                .post(this.constants.PAGE.CREATE, page)
-                .map(this.processSuccessfulResponse)
-                .catch(this.handleErroneousResponse) :
-            Observable.empty();
+        if (!this.isValidPage(page)) {
+            return Observable.empty();
+        }
+
+        let options = new RequestOptions({ headers: this.constants.DEFAULT_HEADERS });
+        return this.http
+                   .post(this.constants.PAGE.CREATE, page, options)
+                   .map(this.processSuccessfulResponse)
+                   .catch(this.handleErroneousResponse);
     }
 
     removePage(page: Page) : void {
