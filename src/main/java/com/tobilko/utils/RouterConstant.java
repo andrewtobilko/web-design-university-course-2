@@ -19,6 +19,9 @@ public interface RouterConstant {
         String
                 BASE_PATH = "/api",
                 CORS_BASE_PATTERN = BASE_PATH  + "/**",
+
+                ERROR_PATH = "/error",
+
                 SORT_PARAM_NAME = "s",
                 LIMIT_PARAM_NAME = "l",
                 PAGE_PARAM_NAME = "p";
