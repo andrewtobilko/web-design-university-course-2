@@ -19,6 +19,8 @@ public class GlobalRepositoryRestConfigurer extends RepositoryRestConfigurerAdap
     public void configureRepositoryRestConfiguration(RepositoryRestConfiguration config) {
         config
 
+                .setReturnBodyOnCreate(true)
+
                 /* path configuration */
                 .setBasePath(BASE_PATH)
                 .setDefaultMediaType(APPLICATION_JSON)

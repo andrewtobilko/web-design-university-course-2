@@ -8,27 +8,46 @@ import {Constants} from "../app.constants.interface";
 @Injectable()
 export class PageService {
 
-    constructor(private http: Http, @Inject(CONSTANTS) private constants: Constants) {}
+    private pages : Page[];
+
+    constructor(private http: Http,
+                @Inject(CONSTANTS) private constants: Constants) {}
+
+    getAllPages() : Observable<Page[]> {
+        return this.pages ?
+            Observable.of(this.pages) :
+            this.fetchAllPages();
+    }
 
     createPage(page: Page): Observable<Page> {
         if (!this.isValidPage(page)) {
+            // todo : message
             return Observable.empty();
         }
 
         let options = new RequestOptions({ headers: new Headers(this.constants.DEFAULT_HEADERS) });
         return this.http
                    .post(this.constants.PAGE.CREATE, page, options)
-                   .map(this.processSuccessfulResponse)
+                   .map(this.processSuccessfulResponseForCreating)
                    .catch(this.handleErroneousResponse);
     }
 
     removePage(page: Page) : void {
-        // todo : delete to the server
-        alert('Page has been deleted');
+        // todo
     }
 
-    private processSuccessfulResponse(response: Response) {
-        alert('Page has been created');
+    private fetchAllPages(): Observable<Page[]> {
+        return this.http
+                   .get(this.constants.PAGE.FETCH_ALL)
+                   .map(this.processSuccessfulResponseForFetchingAllPages)
+                   .catch(this.handleErroneousResponse);
+    }
+
+    private processSuccessfulResponseForFetchingAllPages(response: Response) {
+        // todo
+    }
+
+    private processSuccessfulResponseForCreating(response: Response) {
         return response.json().data || {};
     }
 

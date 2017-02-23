@@ -26,13 +26,14 @@ export class PageConstructor {
             .subscribe(this.processSuccessfulResponse, this.handleErroneousResponse);
     }
 
-    private processSuccessfulResponse(page : Page) {
-        alert('processSuccessfulResponse > page controller')
+    private processSuccessfulResponse(page: Page) {
+        console.log(page)
         this.router.navigate(['']);
+
     }
 
     private handleErroneousResponse(page : Page) {
-        alert('handleErroneousResponse > page controller')
+        // todo
     }
 
 }

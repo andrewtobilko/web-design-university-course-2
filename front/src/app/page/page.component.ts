@@ -24,11 +24,7 @@ export class PageComponent implements OnInit {
         this.activatedRoute.data.subscribe((data: {title: 'Pages'}) => {
             this.title = data.title;
         });
-        this.getPages();
-    }
-
-    getPages(): void {
-        // todo
+        this.service.getAllPages().subscribe(); // todo
     }
 
 }
