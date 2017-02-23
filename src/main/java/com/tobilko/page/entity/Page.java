@@ -1,5 +1,7 @@
 package com.tobilko.page.entity;
 
+import lombok.Data;
+
 import javax.persistence.*;
 
 /**
@@ -7,6 +9,7 @@ import javax.persistence.*;
  * Created by Andrew Tobilko on 20.02.17.
  *
  */
+@Data
 @Entity
 public class Page {
 
