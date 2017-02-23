@@ -23,13 +23,14 @@ export class PageConstructor {
 
         this.service
             .createPage(page)
-            .subscribe(this.processSuccessfulResponse, this.handleErroneousResponse);
+            .subscribe(this.processSuccessfulResponse(), this.handleErroneousResponse)
     }
 
-    private processSuccessfulResponse(page: Page) {
-        console.log(page)
-        this.router.navigate(['']);
-
+    private processSuccessfulResponse() {
+        return page => {
+            // todo
+            this.router.navigate(['']);
+        }
     }
 
     private handleErroneousResponse(page : Page) {

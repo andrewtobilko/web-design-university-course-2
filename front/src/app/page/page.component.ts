@@ -1,6 +1,7 @@
 import {Component, OnInit} from "@angular/core";
 import {ActivatedRoute, Router} from "@angular/router";
 import {PageService} from "./page.service";
+import {Page} from "./entity/page.model";
 
 @Component({
     selector: 'page',
@@ -24,7 +25,18 @@ export class PageComponent implements OnInit {
         this.activatedRoute.data.subscribe((data: {title: 'Pages'}) => {
             this.title = data.title;
         });
-        this.service.getAllPages().subscribe(); // todo
+
+        this.service.getAllPages()
+                    .subscribe(this.subscribeToSuccessfulFetchResponse,
+                               this.handleErroneousFetchResponse);
+    }
+
+    private subscribeToSuccessfulFetchResponse(pages: Page[]) {
+        // todo
+    }
+
+    private handleErroneousFetchResponse() {
+        // todo
     }
 
 }
