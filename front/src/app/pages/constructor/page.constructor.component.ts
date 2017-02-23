@@ -1,7 +1,7 @@
 import {Component} from "@angular/core";
-import {Page} from "../entity/page.model";
-import {PageService} from "../page.service";
+import {PagesService} from "../pages.service";
 import {Router} from "@angular/router";
+import {Page} from "../page/model/page.model";
 
 @Component({
     selector: 'add-page-form',
@@ -15,7 +15,7 @@ export class PageConstructor {
         uri: ''
     };
 
-    constructor(private service: PageService,
+    constructor(private service: PagesService,
                 private router: Router) {}
 
     construct(): void {

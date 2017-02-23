@@ -1,24 +1,26 @@
 import {Component, OnInit} from "@angular/core";
 import {ActivatedRoute, Router} from "@angular/router";
-import {PageService} from "./page.service";
-import {Page} from "./entity/page.model";
+import {PagesService} from "./pages.service";
+import {Page} from "./page/model/page.model";
 
 @Component({
-    selector: 'page',
-    templateUrl: './page.component.html',
-    styleUrls: ['./page.component.css'],
+    templateUrl: 'pages.component.html',
+    styleUrls: ['pages.component.css'],
     providers: [
-        PageService
+        PagesService
     ]
 })
-export class PageComponent implements OnInit {
+export class PagesComponent implements OnInit {
 
     private title;
+    private pages;
+
+    private a: Page = new Page('andrew', 'tobilko');
 
     constructor(
         private activatedRoute: ActivatedRoute,
         private router: Router,
-        private service: PageService
+        private service: PagesService
     ) {}
 
     ngOnInit(): void {
@@ -32,7 +34,8 @@ export class PageComponent implements OnInit {
     }
 
     private subscribeToSuccessfulFetchResponse(pages: Page[]) {
-        // todo
+        console.log('pages ', pages);
+        this.pages = pages;
     }
 
     private handleErroneousFetchResponse() {

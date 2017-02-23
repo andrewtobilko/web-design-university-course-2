@@ -12,10 +12,7 @@
       "index": "index.html",
       "main": "main.ts",
       "tsconfig": "tsconfig.json",
-      "prefix": "app",
-      "styles": [
-        "style.css"
-      ]
+      "prefix": "app"
     }
   ],
   "defaults": {

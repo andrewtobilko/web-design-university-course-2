@@ -1,12 +1,12 @@
-import {PageNotFoundComponent} from "./error/error.component";
-import {PageConstructor} from "./page/constructor/page.constructor.component";
-import {PageComponent} from "./page/page.component";
+import {PageNotFoundComponent} from "../error/error.component";
+import {PageConstructor} from "../pages/constructor/page.constructor.component";
+import {PagesComponent} from "../pages/pages.component";
 import {Routes} from "@angular/router";
 
 export const APPLICATION_ROUTERS: Routes = [
     {
         path: 'pages',
-        component: PageComponent,
+        component: PagesComponent,
         data: {
             title: 'Pages'
         },

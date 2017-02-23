@@ -1,12 +1,12 @@
 import {Injectable, Inject} from "@angular/core";
-import {Page} from "./entity/page.model";
+import {Page} from "./page/page.component";
 import {Response, Http, RequestOptions, Headers} from "@angular/http";
-import {CONSTANTS} from "../app.constants";
+import {CONSTANTS} from "../config/app.constants";
 import {Observable} from "rxjs";
-import {Constants} from "../app.constants.interface";
+import {Constants} from "../config/app.constants.interface";
 
 @Injectable()
-export class PageService {
+export class PagesService {
 
     private pages : Page[];
 
