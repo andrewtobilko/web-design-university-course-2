@@ -1,4 +1,5 @@
 <div class="page-wrapper">
     <span class="title">Title: {{page.getTitle}}</span>
-    <span class="uri">URI: {{page.getURI}}</span>
+    <span class="uri">URL: {{getFullURL()}}</span>
+    <button class="remove-button" (click)="remove">X</button>
 </div>

@@ -1,12 +1,12 @@
 export class Page {
 
     private title : string;
-    private uri : string;
+    private identifier : string;
 
     constructor(title: string,
                 uri: string) {
         this.title = title;
-        this.uri = uri;
+        this.identifier = uri;
     }
 
     get getTitle(): string {
@@ -17,16 +17,16 @@ export class Page {
         this.title = newTitle;
     }
 
-    get getURI(): string {
-        return this.uri;
+    get getIdentifier(): string {
+        return this.identifier;
     }
 
-    setURI(uri: string): void {
-        this.uri = uri;
+    setIdentifier(uri: string): void {
+        this.identifier = uri;
     }
 
     toString = () : string => {
-        return 'Title: ' + this.title + ', url: ' + this.uri;
+        return 'Title: ' + this.title + ', url: ' + this.identifier;
     }
 
 }

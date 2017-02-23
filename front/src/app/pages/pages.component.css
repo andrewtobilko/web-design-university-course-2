@@ -1,0 +1,12 @@
+.page-list .control-panel {
+    border-top: 2px solid lightgrey;
+    border-bottom: 2px solid lightgrey;
+
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+.page-list .no-pages-wrapper {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}

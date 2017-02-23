@@ -15,8 +15,6 @@ export class PagesComponent implements OnInit {
     private title;
     private pages;
 
-    private a: Page = new Page('andrew', 'tobilko');
-
     constructor(
         private activatedRoute: ActivatedRoute,
         private router: Router,
@@ -29,13 +27,21 @@ export class PagesComponent implements OnInit {
         });
 
         this.service.getAllPages()
-                    .subscribe(this.subscribeToSuccessfulFetchResponse,
+                    .subscribe(this.subscribeToSuccessfulFetchResponse(),
                                this.handleErroneousFetchResponse);
     }
 
-    private subscribeToSuccessfulFetchResponse(pages: Page[]) {
-        console.log('pages ', pages);
-        this.pages = pages;
+    hasPages(): boolean {
+        return this.pages && this.pages.length;
+    }
+
+    private subscribeToSuccessfulFetchResponse() {
+        console.log('subscribeToSuccessfulFetchResponse')
+        return pages => {
+            console.log('pages', pages);
+            this.pages = pages;
+            console.log('this.pages.c', this.pages);
+        };
     }
 
     private handleErroneousFetchResponse() {

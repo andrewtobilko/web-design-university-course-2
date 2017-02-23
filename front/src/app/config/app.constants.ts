@@ -3,7 +3,7 @@ import {Constants} from "./app.constants.interface";
 
 export let CONSTANTS = new OpaqueToken("app.constants");
 
-const GLOBAL = {
+export const GLOBAL = {
     SERVER_URL: 'http://localhost:8080/api'
 };
 

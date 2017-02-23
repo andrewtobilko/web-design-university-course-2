@@ -1,14 +1,14 @@
 import {Injectable, Inject} from "@angular/core";
-import {Page} from "./page/page.component";
 import {Response, Http, RequestOptions, Headers} from "@angular/http";
 import {CONSTANTS} from "../config/app.constants";
 import {Observable} from "rxjs";
 import {Constants} from "../config/app.constants.interface";
+import {Page} from "./page/model/page.model";
 
 @Injectable()
 export class PagesService {
 
-    private pages : Page[];
+    private pages : Array<Page>;
 
     constructor(private http: Http,
                 @Inject(CONSTANTS) private constants: Constants) {}
@@ -44,7 +44,13 @@ export class PagesService {
     }
 
     private processSuccessfulResponseForFetchingAllPages(response: Response) {
-        // todo
+        response
+            .json()
+            .content
+            .map(o => new Page(o.title, o.identifier))
+            .forEach(o => this.pages ? this.pages.push(o) : (this.pages = []).push(o));
+
+        return this.pages;
     }
 
     private processSuccessfulResponseForCreating(response: Response) {
@@ -58,7 +64,7 @@ export class PagesService {
     }
 
     private isValidPage(page: Page) : boolean {
-        return !!page.getTitle && !!page.getURI;
+        return !!page.getTitle && !!page.getIdentifier;
     }
 
 }
