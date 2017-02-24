@@ -1,5 +1,5 @@
 <div class="page-wrapper">
-    <span class="title">Title: {{page.getTitle}}</span>
-    <span class="uri">URL: {{getFullURL()}}</span>
-    <button class="remove-button" (click)="remove">X</button>
+    <span class="title">{{page.getTitle}}</span>
+    <span class="uri">[<a [href]="getFullURL()" target="_blank">{{getFullURL()}}</a>]</span>
+    <button md-button class="remove-button" (click)="remove">Remove</button>
 </div>

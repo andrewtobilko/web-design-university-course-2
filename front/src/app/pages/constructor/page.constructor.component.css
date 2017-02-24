@@ -1,6 +1,9 @@
 .page-constructor-wrapper {
     border: 1px solid lightgrey;
     padding: 5px;
+
+    margin-top: 15px;
+    margin-bottom: 15px;
 }
 
 .page-constructor-wrapper input {

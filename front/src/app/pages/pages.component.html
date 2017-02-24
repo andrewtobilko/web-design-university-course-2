@@ -1,13 +1,16 @@
 <div class="page-list">
     <h1 [innerHtml]="title"></h1>
+
     <div class="control-panel">
         <button md-button [routerLink]="['create']">Add page</button>
     </div>
+
+    <router-outlet></router-outlet>
+
     <div class="pages-wrapper" *ngIf="hasPages()">
         Page list:
         <page *ngFor="let page of pages" [page]="page"></page>
     </div>
-    <router-outlet></router-outlet>
     <div class="no-pages-wrapper" [hidden]="hasPages()">
         There is no pages yet...
     </div>
