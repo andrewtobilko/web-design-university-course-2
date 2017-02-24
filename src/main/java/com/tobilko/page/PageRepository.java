@@ -4,6 +4,8 @@ import com.tobilko.page.entity.Page;
 import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
+import java.util.Optional;
+
 /**
  *
  * Created by Andrew Tobilko on 20.02.17.
@@ -12,6 +14,6 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 @RepositoryRestResource
 public interface PageRepository extends PagingAndSortingRepository<Page, Long> {
 
-    Page findByIdentifier(String identifier);
+    Optional<Page> findByIdentifier(String identifier);
 
 }

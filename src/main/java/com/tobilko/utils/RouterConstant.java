@@ -12,7 +12,8 @@ public interface RouterConstant {
     interface PageConstant {
         String
                 IDENTIFIER = "identifier",
-                GET_BY_IDENTIFIER = "pages/{" + IDENTIFIER + "}";
+                PUBLISHED_PAGES_PATH = "publishedPages",
+                PAGE_IDENTIFIER_PATH_PARAM = "{" + IDENTIFIER + "}";
     }
 
     interface Configuration {

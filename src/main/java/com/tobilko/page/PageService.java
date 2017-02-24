@@ -1,6 +1,7 @@
 package com.tobilko.page;
 
 import com.tobilko.page.entity.Page;
+import com.tobilko.page.exception.PublishingException;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +19,7 @@ public class PageService {
     public final @NonNull PageRepository repository;
 
     public Page getPageByIdentifier(String identifier) {
-        return repository.findByIdentifier(identifier);
+        return repository.findByIdentifier(identifier).orElseThrow(PublishingException::new);
     }
 
 }

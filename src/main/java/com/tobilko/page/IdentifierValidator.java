@@ -3,8 +3,8 @@ package com.tobilko.page;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
 
+import static com.tobilko.utils.ErrorMessageConstant.IDENTIFIER_NOT_NULL;
 import static com.tobilko.utils.RouterConstant.PageConstant.IDENTIFIER;
-import static com.tobilko.utils.ValidationErrorMessageConstant.IdentifierError.IDENTIFIER_NOT_NULL;
 import static java.util.Objects.requireNonNull;
 import static org.springframework.validation.ValidationUtils.rejectIfEmptyOrWhitespace;
 
