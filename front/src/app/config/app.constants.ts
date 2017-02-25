@@ -12,7 +12,8 @@ export const ApplicationConstants : Constants =  {
     PAGE: {
         CREATE: GLOBAL.SERVER_URL + '/pages',
         FETCH_ALL: GLOBAL.SERVER_URL + '/pages',
-        DELETE: GLOBAL.SERVER_URL + '/pages'
+        DELETE: GLOBAL.SERVER_URL + '/pages',
+        GET_PUBLISHED: GLOBAL.SERVER_URL + '/publishedPages/'
     },
 
     DEFAULT_HEADERS: {

@@ -1,7 +1,8 @@
-import {Component, Input} from "@angular/core";
+import {Component, Input, Inject} from "@angular/core";
 import {Page} from "./model/page.model";
-import {GLOBAL} from "../../config/app.constants";
+import {GLOBAL, CONSTANTS} from "../../config/app.constants";
 import {PagesService} from "../pages.service";
+import {Constants} from "../../config/app.constants.interface";
 
 @Component({
     selector: 'page',
@@ -12,10 +13,11 @@ export class PageComponent {
 
     @Input() page: Page;
 
-    constructor(private service: PagesService) {}
+    constructor(private service: PagesService,
+                @Inject(CONSTANTS) private constants: Constants) {}
 
     getFullURL = (): string => {
-        return GLOBAL.SERVER_URL + '/' + this.page.getIdentifier;
+        return this.constants.PAGE.GET_PUBLISHED + this.page.getIdentifier;
     };
 
     removePage = (page: Page): void => {
