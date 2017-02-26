@@ -17,7 +17,8 @@ public interface ModelViewConstant {
    interface VIEW {
        String
                ERROR = "errors/error",
-               PAGE = "page";
+               PAGE = "page",
+               INDEX = "index";
    }
 
 }

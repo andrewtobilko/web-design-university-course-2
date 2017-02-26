@@ -1,7 +1,11 @@
 package com.tobilko.common.controller;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.servlet.ModelAndView;
+
+import static com.tobilko.utils.ModelViewConstant.VIEW.INDEX;
+import static com.tobilko.utils.RouterConstant.Configuration.ROOT;
 
 /**
  *
@@ -11,9 +15,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class GatewayController {
 
-    @RequestMapping("/")
-    public String index() {
-        return "index";
+    @GetMapping(ROOT)
+    public ModelAndView index() {
+        return new ModelAndView(INDEX);
     }
 
 }

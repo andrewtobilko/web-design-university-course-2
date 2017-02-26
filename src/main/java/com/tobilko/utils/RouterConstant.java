@@ -18,6 +18,7 @@ public interface RouterConstant {
 
     interface Configuration {
         String
+                ROOT = "/",
                 BASE_PATH = "/api",
                 CORS_BASE_PATTERN = BASE_PATH  + "/**",
 
