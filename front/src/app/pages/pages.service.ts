@@ -8,15 +8,19 @@ import {Page} from "./page/model/page.model";
 @Injectable()
 export class PagesService {
 
-    private pages : Array<Page>;
+    pages : Array<Page>;
 
     constructor(private http: Http,
                 @Inject(CONSTANTS) private constants: Constants) {}
 
     getAllPages() : Observable<Page[]> {
-        return this.pages ?
-            Observable.of(this.pages) :
-            this.fetchAllPages();
+        return this.pages ? Observable.of(this.pages) : this.fetchAllPages();
+    }
+
+    addPageLocally(page: Page) :void {
+        console.log('addPageLocally', page)
+        this.pages ? this.pages.push(page) : (this.pages = []).push(page);
+        console.log('addPageLocally', this.pages)
     }
 
     createPage(page: Page): Observable<Page> {

@@ -1,7 +1,7 @@
 yieldUnescaped '<!DOCTYPE html>'
+
 html {
     body {
-        div("Page title: $page .")
-
+        h1 p.title
     }
 }

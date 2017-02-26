@@ -28,7 +28,7 @@ export class PageConstructor {
 
     private processSuccessfulResponse() {
         return page => {
-            // todo
+            this.service.addPageLocally(page);
             this.router.navigate(['']);
         }
     }

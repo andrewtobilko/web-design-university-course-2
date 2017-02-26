@@ -13,7 +13,7 @@ import {Page} from "./page/model/page.model";
 export class PagesComponent implements OnInit {
 
     private title;
-    private pages;
+    private pages: Array<Page> = this.service.pages;
 
     constructor(
         private activatedRoute: ActivatedRoute,
@@ -32,15 +32,12 @@ export class PagesComponent implements OnInit {
     }
 
     hasPages(): boolean {
-        return this.pages && this.pages.length;
+        return this.pages != undefined && this.pages.length > 0;
     }
 
     private subscribeToSuccessfulFetchResponse() {
-        console.log('subscribeToSuccessfulFetchResponse')
         return pages => {
-            console.log('pages', pages);
             this.pages = pages;
-            console.log('this.pages.c', this.pages);
         };
     }
 

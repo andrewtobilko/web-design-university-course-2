@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import static com.tobilko.utils.ModelViewConstant.MODEL;
+import static com.tobilko.utils.ModelViewConstant.VIEW;
 import static com.tobilko.utils.RouterConstant.PageConstant.*;
 
 /**
@@ -27,7 +29,7 @@ public class PageController {
     @GetMapping(path = PAGE_IDENTIFIER_PATH_PARAM)
     public ModelAndView publishPageByIdentifier(@Validated(IdentifierValidator.class)
                                                 @PathVariable(IDENTIFIER) String identifier) {
-        return new ModelAndView("page", "page", service.getPageByIdentifier(identifier));
+        return new ModelAndView(VIEW.PAGE, MODEL.PAGE, service.getPageByIdentifier(identifier));
     }
 
 }
