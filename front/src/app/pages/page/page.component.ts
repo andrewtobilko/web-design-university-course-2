@@ -11,7 +11,7 @@ import {Constants} from "../../config/app.constants.interface";
 })
 export class PageComponent {
 
-    @Input() page: Page;
+    @Input() private page: Page;
 
     constructor(private service: PagesService,
                 @Inject(CONSTANTS) private constants: Constants) {}
@@ -20,8 +20,8 @@ export class PageComponent {
         return this.constants.PAGE.GET_PUBLISHED + this.page.getIdentifier;
     };
 
-    removePage = (page: Page): void => {
-        this.service.removePage(page);
+    removePage = (): void => {
+        this.service.removePage(this.page);
     };
 
 }

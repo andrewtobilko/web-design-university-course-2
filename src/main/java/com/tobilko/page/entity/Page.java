@@ -2,7 +2,10 @@ package com.tobilko.page.entity;
 
 import lombok.Data;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 
 /**
  *
@@ -24,5 +27,6 @@ public class Page {
     private String identifier;
 
     private String title;
+    private Content content;
 
 }

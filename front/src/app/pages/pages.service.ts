@@ -18,9 +18,8 @@ export class PagesService {
     }
 
     addPageLocally(page: Page) :void {
-        console.log('addPageLocally', page)
+        // todo
         this.pages ? this.pages.push(page) : (this.pages = []).push(page);
-        console.log('addPageLocally', this.pages)
     }
 
     createPage(page: Page): Observable<Page> {
@@ -38,6 +37,9 @@ export class PagesService {
 
     removePage(page: Page) : void {
         // todo
+        this.http.delete(this.constants.PAGE.DELETE, page).subscribe(response => {
+            console.log(response);
+        });
     }
 
     private fetchAllPages(): Observable<Page[]> {
