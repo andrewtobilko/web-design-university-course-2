@@ -2,10 +2,7 @@ package com.tobilko.page.entity;
 
 import lombok.Data;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 /**
  *
@@ -27,6 +24,16 @@ public class Page {
     private String identifier;
 
     private String title;
-    private Content content;
+
+    /**
+     * If a parent field is null, then the page considered a root.
+     */
+    private Page parent;
+
+    /**
+     * If that field is not null, then it is a container page.
+     */
+    @Embedded
+    private PageChildren children;
 
 }
