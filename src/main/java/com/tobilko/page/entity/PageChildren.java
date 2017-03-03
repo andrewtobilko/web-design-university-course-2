@@ -12,7 +12,7 @@ import java.util.List;
 @Embeddable
 public class PageChildren {
 
-    @OneToMany(mappedBy = "Page")
+    @OneToMany
     private List<Page> children;
 
     /**

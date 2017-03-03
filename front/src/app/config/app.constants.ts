@@ -13,7 +13,7 @@ export const ApplicationConstants : Constants =  {
     PAGE: {
         CREATE: GLOBAL.SERVER_API_URL + '/pages',
         FETCH_ALL: GLOBAL.SERVER_API_URL + '/pages',
-        DELETE: GLOBAL.SERVER_API_URL + '/pages',
+        DELETE: GLOBAL.SERVER_API_URL + '/pages/{id}',
         GET_PUBLISHED: GLOBAL.SERVER_URL + '/publishedPages/'
     },
 

@@ -1,5 +1,6 @@
 package com.tobilko.configuration;
 
+import com.tobilko.page.entity.Page;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.rest.core.config.RepositoryRestConfiguration;
 import org.springframework.data.rest.webmvc.config.RepositoryRestConfigurerAdapter;
@@ -19,6 +20,7 @@ public class GlobalRepositoryRestConfigurer extends RepositoryRestConfigurerAdap
     public void configureRepositoryRestConfiguration(RepositoryRestConfiguration config) {
         config
 
+                .exposeIdsFor(Page.class)
                 .setReturnBodyOnCreate(true)
 
                 /* path configuration */

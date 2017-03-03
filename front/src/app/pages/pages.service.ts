@@ -8,7 +8,7 @@ import {Page} from "./page/model/page.model";
 @Injectable()
 export class PagesService {
 
-    pages : Array<Page>;
+    pages : Array<Page> = [];
 
     constructor(private http: Http,
                 @Inject(CONSTANTS) private constants: Constants) {}
@@ -22,9 +22,18 @@ export class PagesService {
         this.pages ? this.pages.push(page) : (this.pages = []).push(page);
     }
 
+    private removePageLocally(page: Page) :void {
+        console.log('removePageLocally >', this.pages);
+        var index = this.pages.indexOf(page);
+        if (index > -1) {
+            this.pages.splice(index, 1);
+        }
+        console.log('removePageLocally <', this.pages);
+    }
+
     createPage(page: Page): Observable<Page> {
         if (!this.isValidPage(page)) {
-            // todo : message
+            alert('Page didn\'t pass the validation...')
             return Observable.empty();
         }
 
@@ -36,9 +45,11 @@ export class PagesService {
     }
 
     removePage(page: Page) : void {
-        // todo
-        this.http.delete(this.constants.PAGE.DELETE, page).subscribe(response => {
-            console.log(response);
+        this.http.delete(this.constants.PAGE.DELETE.replace('{id}', page.getId), page).subscribe(response => {
+            if (response.status === 204) {
+                alert('The page was removed!');
+                this.removePageLocally(page);
+            }
         });
     }
 
@@ -53,13 +64,19 @@ export class PagesService {
         response
             .json()
             .content
-            .map(o => new Page(o.title, o.identifier))
-            .forEach(o => this.pages ? this.pages.push(o) : (this.pages = []).push(o));
+            .map(o => new Page(o.title, o.identifier, o.id))
+            .forEach(o => {
+                console.log('>1>', this.pages)
+                this.pages.push(o);
+                console.log('>2>', this.pages)
+            });
 
+        console.log('processSuccessfulResponseForFetchingAllPages, pages out', this.pages);
         return this.pages;
     }
 
     private processSuccessfulResponseForCreating(response: Response) {
+        alert('The page was created!')
         return response.json().data || {};
     }
 

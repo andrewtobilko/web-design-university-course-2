@@ -28,6 +28,7 @@ public class Page {
     /**
      * If a parent field is null, then the page considered a root.
      */
+    @OneToOne
     private Page parent;
 
     /**
