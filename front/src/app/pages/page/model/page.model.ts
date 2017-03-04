@@ -2,13 +2,16 @@ export class Page {
 
     private id : number;
     private title : string;
-    private identifier : string;
+    private children: Array<Page>;
+    private identifier: string;
 
     constructor(title: string,
                 uri: string,
+                children?: Array<Page>,
                 id?: number) {
         this.id = id;
         this.title = title;
+        this.children = children;
         this.identifier = uri;
     }
 
@@ -32,8 +35,12 @@ export class Page {
         this.identifier = uri;
     }
 
-    toString = () : string => {
-        return 'Title: ' + this.title + ', url: ' + this.identifier;
+    get getChildren(): Array<Page> {
+        return this.children;
+    }
+
+    setChildren(children: Array<Page>): void {
+        this.children = children;
     }
 
 }
