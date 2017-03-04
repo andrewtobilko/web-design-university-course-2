@@ -12,18 +12,29 @@ export class PageConstructor {
 
     public page = {
         title: '',
-        uri: ''
+        uri: '',
+        content: '',
+        language: 'en'
     };
 
     constructor(private service: PagesService,
                 private router: Router) {}
 
     construct(): void {
-        let page = new Page(this.page.title, this.page.uri);
+        let page = new Page(this.page.title, this.page.uri, this.page.content);
 
         this.service
             .createPage(page)
             .subscribe(this.processSuccessfulResponse(), this.handleErroneousResponse)
+    }
+
+    changeLanguage(value: string) : void {
+        alert('changed ' + value);
+        this.page.language = value;
+    }
+
+    getAvailableLanguages(): Array<string> {
+        return ['en', 'ua'];
     }
 
     private processSuccessfulResponse() {

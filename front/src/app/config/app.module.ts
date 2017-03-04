@@ -12,6 +12,7 @@ import {JsonpModule, HttpModule} from "@angular/http";
 import {ApplicationConstants, CONSTANTS} from "./app.constants";
 import {APPLICATION_ROUTERS} from "./app.routers";
 import {PageComponent} from "../pages/page/page.component";
+import {Ng2SelectModule} from "ng2-material-select/dist/src/ng2-select.module";
 
 @NgModule({
   imports: [

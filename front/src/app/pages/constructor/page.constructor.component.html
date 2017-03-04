@@ -3,6 +3,12 @@
     <input type="text" [(ngModel)]="page.title" placeholder="Page title">
     <input type="text" [(ngModel)]="page.uri" placeholder="Desired page URI">
 
+    <textarea class="content" [(ngModel)]="page.content" placeholder="Page content" ></textarea>
+
+    <select name="Language" id="lang" (change)="changeLanguage($event.target.value)">
+        <option *ngFor="let i of getAvailableLanguages()" (value)="i">{{i}}</option>
+    </select>
+
     <button md-button class="create-button" (click)="construct()">Create a page</button>
     <button md-button class="close-button" routerLink="">Close</button>
 

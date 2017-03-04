@@ -3,14 +3,17 @@ export class Page {
     private id : number;
     private title : string;
     private children: Array<Page>;
+    private content: string;
     private identifier: string;
 
     constructor(title: string,
                 uri: string,
-                children?: Array<Page>,
-                id?: number) {
+                content: string,
+                id?: number,
+                children?: Array<Page>) {
         this.id = id;
         this.title = title;
+        this.content = content;
         this.children = children;
         this.identifier = uri;
     }
@@ -41,6 +44,14 @@ export class Page {
 
     setChildren(children: Array<Page>): void {
         this.children = children;
+    }
+
+    get getContent(): string {
+        return this.content;
+    }
+
+    setContent(content: string): void {
+        this.content = content;
     }
 
 }
