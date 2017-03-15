@@ -1,12 +1,17 @@
 package com.tobilko;
 
 import com.tobilko.page.PageRepository;
+import com.tobilko.page.entity.LocalisedPage;
 import com.tobilko.page.entity.Page;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  *
@@ -24,6 +29,11 @@ public class Runner {
     public ApplicationRunner fill(@Autowired PageRepository repository) {
         return args -> {
             Page p = new Page();
+
+            Set<LocalisedPage> children = new HashSet<>();
+
+            p.setChildren(children);
+
             p.setIdentifier("sample1");
             p.setTitle("Title Sample 1");
             repository.save(p);

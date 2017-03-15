@@ -10,7 +10,8 @@ public interface ModelViewConstant {
    interface MODEL {
        String
                EXCEPTION = "exception",
-               PAGE = "p";
+               PAGE = "p",
+               CONTAINER = "container";
 
    }
 

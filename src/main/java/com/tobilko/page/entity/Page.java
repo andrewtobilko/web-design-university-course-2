@@ -3,6 +3,10 @@ package com.tobilko.page.entity;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.util.Set;
+import java.util.concurrent.CopyOnWriteArraySet;
+
+import static com.tobilko.utils.ModelViewConstant.MODEL.CONTAINER;
 
 /**
  *
@@ -17,13 +21,11 @@ public class Page {
     @GeneratedValue
     private Long id;
 
-    /**
-     * An unique identifier, it's likely just an url.
-     */
     @Column(unique = true)
     private String identifier;
 
-    private String title;
+    @OneToMany(mappedBy = CONTAINER)
+    private Set<LocalisedPage> localisedPages;
 
     /**
      * If a parent field is null, then the page considered a root.
@@ -34,7 +36,16 @@ public class Page {
     /**
      * If that field is not null, then it is a container page.
      */
-    @Embedded
-    private PageChildren children;
+    @OneToMany
+    private Set<Page> children;
+
+
+    public Page() {
+        children = new CopyOnWriteArraySet<>();
+    }
+
+    public boolean isContainerPage() {
+        return children != null && children.size() > 0;
+    }
 
 }
