@@ -1,8 +1,8 @@
-yieldUnescaped '<!DOCTYPE html>'
+<!DOCTYPE html>
 
-html {
-    body {
-        h1 exception.getClass().getName()
-        p exception.getMessage()
-    }
-}
+<html lang="en">
+    <body>
+        <h1>${exception.getClass().getName()}</h1>
+        <p>${exception.getMessage()}</p>
+    </body>
+</html>

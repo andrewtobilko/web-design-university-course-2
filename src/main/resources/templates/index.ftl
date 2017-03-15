@@ -1,7 +1,7 @@
-yieldUnescaped '<!DOCTYPE html>'
+<!DOCTYPE html>
 
-html {
-    body {
-        h1 'Home page'
-    }
-}
+<html lang="en">
+    <body>
+        <h1>Home page</h1>
+    </body>
+</html>
