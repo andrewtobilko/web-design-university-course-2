@@ -1,12 +1,18 @@
 package com.tobilko.page.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.tobilko.common.Language;
+import com.tobilko.page.entity.localised.LocalisedPage;
 import lombok.Data;
 
 import javax.persistence.*;
-import java.util.Set;
-import java.util.concurrent.CopyOnWriteArraySet;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.concurrent.CopyOnWriteArrayList;
 
-import static com.tobilko.utils.ModelViewConstant.MODEL.CONTAINER;
+import static javax.persistence.CascadeType.PERSIST;
+import static javax.persistence.CascadeType.REMOVE;
 
 /**
  *
@@ -24,8 +30,8 @@ public class Page {
     @Column(unique = true)
     private String identifier;
 
-    @OneToMany(mappedBy = CONTAINER)
-    private Set<LocalisedPage> localisedPages;
+    @OneToMany(cascade = {PERSIST, REMOVE}, fetch = FetchType.EAGER)
+    private Map<Language, LocalisedPage> localisedPages;
 
     /**
      * If a parent field is null, then the page considered a root.
@@ -36,14 +42,16 @@ public class Page {
     /**
      * If that field is not null, then it is a container page.
      */
-    @OneToMany
-    private Set<Page> children;
-
+    @OneToMany(cascade = {PERSIST, REMOVE}, fetch = FetchType.EAGER)
+    private List<Page> children;
 
     public Page() {
-        children = new CopyOnWriteArraySet<>();
+        children = new CopyOnWriteArrayList<>();
+        //localisedPages = new CopyOnWriteArrayList<>();
+        localisedPages = new HashMap<>();
     }
 
+    @JsonIgnore
     public boolean isContainerPage() {
         return children != null && children.size() > 0;
     }

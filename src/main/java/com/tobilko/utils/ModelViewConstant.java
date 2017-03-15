@@ -10,7 +10,7 @@ public interface ModelViewConstant {
    interface MODEL {
        String
                EXCEPTION = "exception",
-               PAGE = "p",
+               PAGE = "page",
                CONTAINER = "container";
 
    }
@@ -20,6 +20,11 @@ public interface ModelViewConstant {
                ERROR = "errors/error",
                PAGE = "page",
                INDEX = "index";
+   }
+
+   interface PROJECTION {
+       String
+               WITH_LOCALISED_PAGES = "with-localised-pages";
    }
 
 }

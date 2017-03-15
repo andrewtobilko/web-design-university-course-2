@@ -1,9 +1,10 @@
-package com.tobilko.page.entity;
+package com.tobilko.page.entity.localised;
 
-import com.tobilko.common.Language;
 import lombok.Data;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 
 /**
  *
@@ -18,10 +19,6 @@ public class LocalisedPage {
     @GeneratedValue
     private Long id;
 
-    @ManyToOne
-    private Page container;
-
-    private Language language;
     private String title;
     private String content;
 
