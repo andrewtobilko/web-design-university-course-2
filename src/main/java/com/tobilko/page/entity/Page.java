@@ -47,7 +47,6 @@ public class Page {
 
     public Page() {
         children = new CopyOnWriteArrayList<>();
-        //localisedPages = new CopyOnWriteArrayList<>();
         localisedPages = new HashMap<>();
     }
 

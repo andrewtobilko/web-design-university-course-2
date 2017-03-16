@@ -1,4 +1,3 @@
 spring:
-  groovy:
-    template:
-      cache: false
+  freemarker:
+    cache: false

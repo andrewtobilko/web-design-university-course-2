@@ -11,7 +11,8 @@ public interface ModelViewConstant {
        String
                EXCEPTION = "exception",
                PAGE = "page",
-               CONTAINER = "container";
+               LOCALISED_PAGE = "localisedPage",
+               LANGUAGE = "language";
 
    }
 
