@@ -6,10 +6,8 @@ import com.tobilko.page.entity.localised.LocalisedPage;
 import lombok.Data;
 
 import javax.persistence.*;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.concurrent.CopyOnWriteArrayList;
 
 import static javax.persistence.CascadeType.PERSIST;
 import static javax.persistence.CascadeType.REMOVE;
@@ -45,14 +43,17 @@ public class Page {
     @OneToMany(cascade = {PERSIST, REMOVE}, fetch = FetchType.EAGER)
     private List<Page> children;
 
-    public Page() {
-        children = new CopyOnWriteArrayList<>();
-        localisedPages = new HashMap<>();
-    }
+    @OneToOne(cascade = {PERSIST})
+    private Page aliasFor;
 
     @JsonIgnore
     public boolean isContainerPage() {
         return children != null && children.size() > 0;
+    }
+
+    @JsonIgnore
+    public boolean isALiasPage() {
+        return aliasFor != null;
     }
 
 }

@@ -35,6 +35,9 @@ public class PageController {
     public ModelAndView publishPageByIdentifier(@Validated(IdentifierValidator.class)
                                                 @PathVariable(IDENTIFIER) String identifier, @RequestParam Language language) {
         Page page = service.getPageByIdentifier(identifier);
+
+        service.processPossibleAliasPage(page);
+
         return new ModelAndView(VIEW.PAGE)
                 .addObject(PAGE, page)
                 .addObject(LANGUAGE, language)

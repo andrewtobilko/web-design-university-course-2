@@ -2,9 +2,7 @@ package com.tobilko.page;
 
 import com.tobilko.page.entity.Page;
 import com.tobilko.page.exception.PublishingException;
-import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
@@ -13,13 +11,37 @@ import org.springframework.stereotype.Service;
  *
  */
 @Service
-@RequiredArgsConstructor(onConstructor = @__(@Autowired))
+@RequiredArgsConstructor
 public class PageService {
 
-    public final @NonNull PageRepository repository;
+    public final PageRepository repository;
 
     public Page getPageByIdentifier(String identifier) {
         return repository.findByIdentifier(identifier).orElseThrow(PublishingException::new);
+    }
+
+    public Page processPossibleAliasPage(Page page) {
+
+        if (page.isALiasPage()) {
+            Page mainPage = page.getAliasFor();
+
+            page.setIdentifier(mainPage.getIdentifier());
+            copyDataFromMainPageToAliasPage(mainPage, page);
+        }
+
+        return page;
+    }
+
+    private void copyDataFromMainPageToAliasPage(Page mainPage, Page page) {
+
+        if (page.getChildren() == null) {
+            page.setChildren(mainPage.getChildren());
+        }
+
+        if (page.getParent() == null) {
+            page.setParent(mainPage.getParent());
+        }
+
     }
 
 }
