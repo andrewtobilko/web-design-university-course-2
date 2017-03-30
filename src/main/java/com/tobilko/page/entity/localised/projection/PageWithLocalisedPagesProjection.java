@@ -1,6 +1,6 @@
 package com.tobilko.page.entity.localised.projection;
 
-import com.tobilko.common.Language;
+import com.tobilko.common.language.Language;
 import com.tobilko.page.entity.Page;
 import com.tobilko.page.entity.localised.LocalisedPage;
 import org.springframework.data.rest.core.config.Projection;

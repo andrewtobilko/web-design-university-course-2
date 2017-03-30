@@ -1,6 +1,7 @@
 package com.tobilko.page;
 
-import com.tobilko.common.Language;
+import com.tobilko.common.criteria.SortCriteria;
+import com.tobilko.common.language.Language;
 import com.tobilko.page.entity.Page;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
@@ -33,9 +34,12 @@ public class PageController {
 
     @GetMapping(path = PAGE_IDENTIFIER_PATH_PARAM)
     public ModelAndView publishPageByIdentifier(@Validated(IdentifierValidator.class)
-                                                @PathVariable(IDENTIFIER) String identifier, @RequestParam Language language) {
+                                                @PathVariable(IDENTIFIER) String identifier,
+                                                @RequestParam Language language,
+                                                @RequestParam(required = false) SortCriteria criteria) {
         Page page = service.getPageByIdentifier(identifier);
 
+        service.sortPageChildrenElementsIfAny(page, criteria);
         service.processPossibleAliasPage(page);
 
         return new ModelAndView(VIEW.PAGE)

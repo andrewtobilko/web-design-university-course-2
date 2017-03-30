@@ -1,10 +1,9 @@
 package com.tobilko.configuration;
 
-import com.tobilko.common.Language;
+import com.tobilko.common.language.Language;
 import com.tobilko.page.PageRepository;
 import com.tobilko.page.entity.Page;
 import com.tobilko.page.entity.localised.LocalisedPage;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -50,14 +49,26 @@ public class GlobalConfiguration {
 
             Page p3 = new Page();
             p3.setIdentifier("example-first-child");
+            p3.setPopularity(1);
+            p3.setRating(100);
             p3.setParent(page);
 
             Page p4 = new Page();
+            p4.setPopularity(2);
+            p4.setRating(1000);
             p4.setIdentifier("example-second-child");
             p4.setParent(page);
 
+            Page p5 = new Page();
+            p5.setPopularity(3);
+            p5.setRating(500);
+            p5.setIdentifier("example-third-child");
+            p5.setParent(page);
+
             pages.add(p3);
             pages.add(p4);
+            pages.add(p5);
+
             page.setChildren(pages);
 
             Page page2 = new Page();

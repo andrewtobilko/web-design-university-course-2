@@ -1,4 +1,4 @@
-package com.tobilko.common;
+package com.tobilko.common.language;
 
 /**
  * Demonstrates a language the resource is written in.
