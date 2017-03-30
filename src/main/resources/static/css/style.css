@@ -1,0 +1,31 @@
+.child {
+    display: inline-block;
+    width: 250px;
+    height: 250px;
+    border: 1px solid gray;
+    padding: 10px;
+    margin: 10px;
+}
+
+.child:hover {
+    background: gainsboro;
+    cursor: pointer;
+}
+
+.child-id {
+    color: grey;
+    font-weight: bold;
+}
+
+.children,
+.general-information {
+    text-align: center;
+}
+
+.general-information-item {
+    padding: 20px;
+    margin: 20px;
+    display: inline-block;
+    width: 200px;
+    border: 1px solid gray;
+}

@@ -40,7 +40,7 @@ public class PageController {
         Page page = service.getPageByIdentifier(identifier);
 
         service.sortPageChildrenElementsIfAny(page, criteria);
-        service.processPossibleAliasPage(page);
+        service.processPossibleAliasPages(page.getChildren());
 
         return new ModelAndView(VIEW.PAGE)
                 .addObject(PAGE, page)

@@ -1,13 +1,18 @@
 <!DOCTYPE html>
 
 <html lang="en">
+    <head>
+        <link href="/css/style.css" rel="stylesheet" />
+    </head>
     <body>
-        <p>Id: <strong>${page.id}</strong></p>
-        <p>URI: <strong>${page.identifier}</strong></p>
-        <p>Language: <strong>${language}</strong></p>
+        <div class="general-information">
+            <p class="general-information-item">Id: <strong>${page.id}</strong></p>
+            <p class="general-information-item">URI: <strong>${page.identifier}</strong></p>
+            <p class="general-information-item">Language: <strong>${language}</strong></p>
 
-        <#assign isContainer = page.isContainerPage()?string('yes', 'no')>
-        <p>Container: <strong>${isContainer}</strong></p>
+            <#assign isContainer = page.isContainerPage()?string('yes', 'no')>
+            <p class="general-information-item">Container: <strong>${isContainer}</strong></p>
+        </div>
 
         <hr>
 
@@ -31,9 +36,18 @@
             <div class="children">
                 <p>Children:</p>
                 <#list page.children as child>
-                    <p>
-                        <a href="http://localhost:8080/publishedPages/${child.identifier}?language=UA">http://localhost:8080/publishedPages/${child.identifier}</a>
-                    </p>
+                    <div class="child">
+                        <a href="http://localhost:8080/publishedPages/${child.identifier}?language=${language}">/publishedPages/${child.identifier}</a>
+                        <p class="child-id">id: ${child.id}</p>
+                        <div class="content">
+                            <#list child.localisedPages as k, v>
+                                <#if k == language>
+                                    <h5>${v.title}</h5>
+                                    <div>${v.content}</div>
+                                </#if>
+                            </#list>
+                        </div>
+                    </div>
                 </#list>
             </div>
         <#else>

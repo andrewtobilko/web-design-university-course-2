@@ -40,16 +40,15 @@ public class PageService {
         return page;
     }
 
-    public Page processPossibleAliasPage(Page page) {
+    public void processPossibleAliasPages(List<Page> pages) {
+        for (Page page : pages) {
+            if (page.isAliasPage()) {
+                Page mainPage = page.getAliasFor();
 
-        if (page.isAliasPage()) {
-            Page mainPage = page.getAliasFor();
-
-            page.setIdentifier(mainPage.getIdentifier());
-            copyDataFromMainPageToAliasPage(mainPage, page);
+                page.setIdentifier(mainPage.getIdentifier());
+                copyDataFromMainPageToAliasPage(mainPage, page);
+            }
         }
-
-        return page;
     }
 
     private Function<Page, Integer> getKeyExtractorFromCriteria(SortCriteria criteria) {
